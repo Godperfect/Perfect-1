@@ -5,15 +5,23 @@
       "src": "app.py",
       "use": "@vercel/python",
       "config": {
-        "maxDuration": 60,  // Increased duration to 60 seconds
-        "memory": 1024  // Increased memory to 1024MB
+        "maxDuration": 10
       }
     }
   ],
+  "functions": {
+    "app.py": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  },
+  "env": {
+    "FFMPEG_PATH": "/opt/vercel/ffmpeg"
+  },
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/app.py"
+      "dest": "app.py"
     }
   ]
 }
